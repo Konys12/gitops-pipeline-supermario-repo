@@ -45,8 +45,8 @@ jobs:
  
       - name: Build and Push Docker Image
         run: |
-          docker build -t docker.io/docker.io/konys12/supermariogitpsproject:${{ env.VERSION }} .
-          docker push docker.io/docker.io/konys12/supermariogitpsproject:${{ env.VERSION }}
+          docker build -t docker.io/konys12/supermariogitpsproject:${{ env.VERSION }} .
+          docker push docker.io/konys12/supermariogitpsproject:${{ env.VERSION }}
  
   run_container_image_scan_on_supermario_docker_image:
     runs-on: ubuntu-latest
@@ -61,8 +61,8 @@ jobs:
         
       - name: Get Docker Image from Docker Hub
         run: |
-          docker pull docker.io/docker.io/konys12/supermariogitpsproject:${{ env.VERSION }}
-          docker save -o supermariolatestdockerimage.tar docker.io/docker.io/konys12/supermariogitpsproject:${{ env.VERSION }}
+          docker pull docker.io/konys12/supermariogitpsproject:${{ env.VERSION }}
+          docker save -o supermariolatestdockerimage.tar docker.io/konys12/supermariogitpsproject:${{ env.VERSION }}
      
       - name: Run Trivy vulnerability scanner in tarball mode
         uses: aquasecurity/trivy-action@master
