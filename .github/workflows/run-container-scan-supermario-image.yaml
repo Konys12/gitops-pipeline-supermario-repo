@@ -22,7 +22,7 @@ jobs:
         
       - name: Get Docker Image from Docker Hub
         run: |
-          docker pull docker.io/konys12/supermariogitpsprojectt:${{ env.VERSION }}
+          docker pull docker.io/konys12/supermariogitpsproject:${{ env.VERSION }}
           docker save -o supermariolatestdockerimage.tar docker.io/konys12/supermariogitpsproject:${{ env.VERSION }}
      
       - name: Run Trivy vulnerability scanner in tarball mode
