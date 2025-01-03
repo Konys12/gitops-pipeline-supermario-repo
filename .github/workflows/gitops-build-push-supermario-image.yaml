@@ -4,6 +4,9 @@ on:
   push:
     branches:
       - main
+
+env:
+  VERSION: $(( $(cat version.txt) + 1 ))
   
 jobs:
   
@@ -19,6 +22,6 @@ jobs:
  
       - name: Build and Push Docker Image
         run: |
-          docker build -t konys12/supermariogitpsproject:1 .
-          docker push konys12/supermariogitpsproject:1
+          docker build -t konys12/supermariogitpsproject:${{ env.VERSION }} .
+          docker push konys12/supermariogitpsproject:${{ env.VERSION }}
  
